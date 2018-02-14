@@ -3,8 +3,6 @@ package com.despairs;
 import com.despairs.generator.Generator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -35,9 +33,8 @@ public class GeneralInfoController {
             builder.withXsd("TEST?", useSameNamespaceBox.isSelected() ? namespaceField.getText() : xsdNamespaceField.getText());
         }
         Stage stage = (Stage) serviceNameField.getScene().getWindow();
-        Scene scene = SceneHelper.create("method_list.fxml");
-        stage.setScene(scene);
-        scene.setUserData(builder);
+        stage.setUserData(builder);
+        App.setCenterView(ViewType.METHOD_LIST);
     }
 
     public void onGenerateXsdSelect(ActionEvent event) {

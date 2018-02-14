@@ -24,12 +24,10 @@ public class MethodListController {
 
     public void handleSubmitButtonAction(ActionEvent event) throws IOException {
         Stage stage = (Stage) methodNameField.getScene().getWindow();
-        Generator.Builder builder = (Generator.Builder) methodNameField.getScene().getUserData();
+        Generator.Builder builder = (Generator.Builder) stage.getUserData();
         builder.withMethods(methodListView.getItems());
 
-        Scene scene = SceneHelper.create("location_chooser.fxml");
-        scene.setUserData(builder);
-        stage.setScene(scene);
+        App.setCenterView(ViewType.SAVE_RESULT);
     }
 
     public void onKeyReleased(KeyEvent keyEvent) {

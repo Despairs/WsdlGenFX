@@ -32,7 +32,7 @@ public class DirectoryChooserController {
     }
 
     public void onGenerateAction(ActionEvent event) throws FileNotFoundException {
-        Generator.Builder builder = (Generator.Builder) directoryPathField.getScene().getUserData();
+        Generator.Builder builder = (Generator.Builder) directoryPathField.getScene().getWindow().getUserData();
         Generator generator = builder.build();
         String path = directoryPathField.getText();
         String wsdlPath = path + "/" + generator.getServiceName() + ".wsdl";
