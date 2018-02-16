@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.despairs.controllers.SaveResultController">
+
+    <center>
+        <GridPane alignment="center" hgap="10" vgap="10">
+            <children>
+                <Label text="Choose target directory: " GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="directoryPathField" prefHeight="40"
+                           GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <Button fx:id="browseButton" defaultButton="true" onAction="#onBrowseAction" text="Browse"
+                        GridPane.rowIndex="1" GridPane.columnIndex="1"
+                        GridPane.halignment="RIGHT"/>
+            </children>
+        </GridPane>
+    </center>
+    <bottom>
+        <HBox alignment="center">
+            <children>
+                <Button fx:id="backButton" onAction="#onBackButtonAction" prefHeight="40" prefWidth="100" text="Back"
+                        BorderPane.alignment="CENTER">
+                    <HBox.margin>
+                        <Insets bottom="20" top="20" right="20"/>
+                    </HBox.margin>
+                </Button>
+                <Button fx:id="generateButton" onAction="#onGenerateAction" prefHeight="40" prefWidth="100" text="Save"
+                        BorderPane.alignment="CENTER">
+                    <HBox.margin>
+                        <Insets bottom="20" top="20"/>
+                    </HBox.margin>
+                </Button>
+            </children>
+        </HBox>
+    </bottom>
+
+</BorderPane>

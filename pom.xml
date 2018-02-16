@@ -31,7 +31,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.despairs.Main</mainClass>
+                            <mainClass>com.despairs.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
