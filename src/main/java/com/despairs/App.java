@@ -1,6 +1,7 @@
 package com.despairs;
 
 import com.despairs.controllers.HeaderController;
+import com.despairs.model.Wsdl;
 import com.despairs.utils.ResourceDirectory;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -18,20 +19,27 @@ public class App extends Application {
     private static View<HeaderController> headerView = Views.get(ViewType.HEADER);
     private static View currentView;
 
+    public static Wsdl wsdl;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         rootPane.setTop(headerView.pane());
-        rootPane.centerProperty().addListener((observable, oldValue, newValue) -> headerView.getController().setTitle(currentView.getViewType()));
+        rootPane.centerProperty().addListener((observable, oldValue, newValue) -> headerView.getController().showTitle(currentView.getViewType()));
 
         show(ViewType.GENERAL_INFO);
         primaryStage.setScene(new Scene(rootPane, 400, 400));
         primaryStage.setTitle(TITLE);
+        primaryStage.setResizable(Boolean.FALSE);
         primaryStage.show();
     }
 
     public static void show(ViewType view) {
         currentView = Views.get(view);
         rootPane.setCenter(currentView.pane());
+    }
+
+    public static void recreateViews() {
+        Views.recreate();
     }
 
     public static void main(String[] args) {

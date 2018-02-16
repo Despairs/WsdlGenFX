@@ -24,12 +24,22 @@
                   BorderPane.alignment="CENTER"/>
     </center>
     <bottom>
-        <Button fx:id="nextButton" onAction="#handleSubmitButtonAction" prefHeight="40" prefWidth="100" text="Next"
-                BorderPane.alignment="CENTER">
-            <BorderPane.margin>
-                <Insets bottom="20" top="20"/>
-            </BorderPane.margin>
-        </Button>
+        <HBox alignment="center">
+            <children>
+                <Button fx:id="backButton" onAction="#onBackButtonAction" prefHeight="40" prefWidth="100" text="Back"
+                        BorderPane.alignment="CENTER">
+                    <HBox.margin>
+                        <Insets bottom="20" top="20" right="20"/>
+                    </HBox.margin>
+                </Button>
+                <Button fx:id="nextButton" onAction="#onNextButtonAction" prefHeight="40" prefWidth="100" text="Next"
+                        BorderPane.alignment="CENTER">
+                    <HBox.margin>
+                        <Insets bottom="20" top="20"/>
+                    </HBox.margin>
+                </Button>
+            </children>
+        </HBox>
     </bottom>
 
 </BorderPane>

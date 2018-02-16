@@ -11,9 +11,7 @@ public class Views {
     private static final Map<ViewType, View> views = new HashMap<>();
 
     static {
-        for (ViewType vt : ViewType.values()) {
-            views.put(vt, new View(vt));
-        }
+        create();
     }
 
     public static View get(ViewType viewType) {
@@ -22,5 +20,16 @@ public class Views {
             throw new IllegalArgumentException(String.format("View for ViewType %s not found", viewType));
         }
         return view;
+    }
+
+    public static void recreate() {
+        views.clear();
+        create();
+    }
+
+    public static void create() {
+        for (ViewType vt : ViewType.values()) {
+            views.put(vt, new View(vt));
+        }
     }
 }

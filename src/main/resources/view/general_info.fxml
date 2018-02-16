@@ -6,23 +6,21 @@
 <GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1"
           xmlns="http://javafx.com/javafx/8.0.121" fx:controller="com.despairs.controllers.GeneralInfoController">
 
-    <Label text="Namespace: " GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-    <TextField fx:id="namespaceField" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Label text="Service name: " GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <TextField fx:id="serviceNameField" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
-    <Label text="ServiceName: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-    <TextField fx:id="serviceNameField" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <Label text="Namespace: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <TextField fx:id="namespaceField" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
-    <Label text="Generate XSD: " GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-    <CheckBox fx:id="generateXsdBox" onAction="#onGenerateXsdSelect"
-              prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <Label text="XSD namespace: " GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <TextField fx:id="xsdNamespaceField" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 
-    <Label text="Same namespace as WSDL: " GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-    <CheckBox fx:id="useSameNamespaceBox" disable="true" onAction="#onUseSameNamespaceSelect"
+    <Label text="Same as WSDL namespace: " GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+    <CheckBox fx:id="useSameNamespaceBox" onAction="#onUseSameNamespaceSelect"
               prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 
-    <Label text="XSD namespace: " GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-    <TextField fx:id="xsdNamespaceField" disable="true"
-               prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+    <Label text="Fault name: " GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+    <TextField fx:id="faultNameField" prefHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
 
     <Button fx:id="nextButton" text="Next" onAction="#onNextButtonClick"
             defaultButton="true" prefWidth="100" prefHeight="40"

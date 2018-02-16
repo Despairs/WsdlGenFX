@@ -2,14 +2,13 @@ package com.despairs.controllers;
 
 import com.despairs.App;
 import com.despairs.ViewType;
-import com.despairs.generator.Generator;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -23,11 +22,9 @@ public class MethodListController extends BaseController {
     @FXML
     private TextField methodNameField;
 
-    public void handleSubmitButtonAction(ActionEvent event) throws IOException {
-        Stage stage = getCurrentStage(event);
-
-        Generator.Builder builder = (Generator.Builder) stage.getUserData();
-        builder.withMethods(methodListView.getItems());
+    public void onNextButtonAction(ActionEvent event) throws IOException {
+        ObservableList<String> methods = methodListView.getItems();
+        App.wsdl.setMethods(methods.toArray(new String[methods.size()]));
 
         App.show(ViewType.SAVE_RESULT);
     }
@@ -51,4 +48,7 @@ public class MethodListController extends BaseController {
         methodNameField.setText(null);
     }
 
+    public void onBackButtonAction(ActionEvent event) {
+        App.show(ViewType.GENERAL_INFO);
+    }
 }
