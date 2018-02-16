@@ -9,9 +9,10 @@ import java.net.URL;
 /**
  * @author EKovtunenko
  */
-public class View {
+public class View<T> {
 
     private final ViewType viewType;
+    private T controller;
     private Pane pane;
 
     public View(ViewType viewType) {
@@ -22,7 +23,7 @@ public class View {
     private void init(String id) {
         try {
             String fxml = resolveFxml(id);
-            pane = loadPane(fxml);
+            loadPane(fxml);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -35,16 +36,22 @@ public class View {
                 .orElseThrow(() -> new IllegalArgumentException("Can't find fxml for id " + id));
     }
 
-    private Pane loadPane(String fxml) throws IOException {
+    private void loadPane(String fxml) throws IOException {
         URL resource = this.getClass().getClassLoader().getResource(fxml);
-        return FXMLLoader.load(resource);
+        FXMLLoader loader = new FXMLLoader(resource);
+        pane = loader.load();
+        controller = loader.getController();
     }
 
-    public Pane toPane() {
+    public Pane pane() {
         return pane;
     }
 
     public ViewType getViewType() {
         return viewType;
+    }
+
+    public T getController() {
+        return controller;
     }
 }

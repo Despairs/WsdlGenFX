@@ -3,7 +3,7 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
-<VBox prefHeight="50.0" alignment="CENTER" fx:controller="com.despairs.HeaderController"
+<VBox prefHeight="50.0" alignment="CENTER" fx:controller="com.despairs.controllers.HeaderController"
       xmlns="http://javafx.com/javafx/8.0.121"
       xmlns:fx="http://javafx.com/fxml/1">
     <children>

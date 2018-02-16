@@ -4,8 +4,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 <BorderPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.despairs.DirectoryChooserController">
+            fx:controller="com.despairs.controllers.SaveResultController">
 
     <center>
         <GridPane alignment="center" hgap="10" vgap="10">
@@ -20,8 +21,11 @@
         </GridPane>
     </center>
     <bottom>
-        <Button fx:id="generateButton" onAction="#onGenerateAction" prefHeight="40" prefWidth="100" text="Next"
+        <Button fx:id="generateButton" onAction="#onGenerateAction" prefHeight="40" prefWidth="100" text="Save"
                 BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets bottom="20" top="20"/>
+            </BorderPane.margin>
         </Button>
     </bottom>
 

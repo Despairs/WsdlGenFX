@@ -1,5 +1,7 @@
-package com.despairs;
+package com.despairs.controllers;
 
+import com.despairs.App;
+import com.despairs.ViewType;
 import com.despairs.generator.Generator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,7 +14,7 @@ import java.io.IOException;
 /**
  * @author EKovtunenko
  */
-public class GeneralInfoController {
+public class GeneralInfoController extends BaseController {
 
     @FXML
     private TextField namespaceField;
@@ -25,16 +27,18 @@ public class GeneralInfoController {
     @FXML
     private CheckBox generateXsdBox;
 
-    public void handleSubmitButtonAction(ActionEvent event) throws IOException {
+    public void onNextButtonClick(ActionEvent event) throws IOException {
         Generator.Builder builder = Generator.newBuilder()
                 .withServiceName(serviceNameField.getText())
                 .withNamespace(namespaceField.getText());
         if (generateXsdBox.isSelected()) {
             builder.withXsd("TEST?", useSameNamespaceBox.isSelected() ? namespaceField.getText() : xsdNamespaceField.getText());
         }
-        Stage stage = (Stage) serviceNameField.getScene().getWindow();
+
+        Stage stage = getCurrentStage(event);
         stage.setUserData(builder);
-        App.setCenterView(ViewType.METHOD_LIST);
+
+        App.show(ViewType.METHOD_LIST);
     }
 
     public void onGenerateXsdSelect(ActionEvent event) {

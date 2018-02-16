@@ -1,9 +1,10 @@
-package com.despairs;
+package com.despairs.controllers;
 
+import com.despairs.App;
+import com.despairs.ViewType;
 import com.despairs.generator.Generator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -15,7 +16,7 @@ import java.io.IOException;
 /**
  * @author EKovtunenko
  */
-public class MethodListController {
+public class MethodListController extends BaseController {
 
     @FXML
     private ListView<String> methodListView;
@@ -23,11 +24,12 @@ public class MethodListController {
     private TextField methodNameField;
 
     public void handleSubmitButtonAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage) methodNameField.getScene().getWindow();
+        Stage stage = getCurrentStage(event);
+
         Generator.Builder builder = (Generator.Builder) stage.getUserData();
         builder.withMethods(methodListView.getItems());
 
-        App.setCenterView(ViewType.SAVE_RESULT);
+        App.show(ViewType.SAVE_RESULT);
     }
 
     public void onKeyReleased(KeyEvent keyEvent) {
@@ -38,7 +40,7 @@ public class MethodListController {
         }
     }
 
-    public void onAddNewMethod(ActionEvent event) {
+    public void onAddNewMethodClick(ActionEvent event) {
         String text = methodNameField.getText();
         if (text != null) {
             text = text.trim();
